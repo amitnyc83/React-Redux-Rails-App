@@ -1,6 +1,6 @@
-class CreateSoccerShoe < ActiveRecord::Migration[5.2]
+class CreateShoe < ActiveRecord::Migration[5.2]
   def change
-    create_table :soccer_shoe do |t|
+    create_table :shoe do |t|
       t.string :name
       t.string :brand
       t.integer :price

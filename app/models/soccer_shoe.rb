@@ -1,2 +1,0 @@
-class SoccerShoe < ApplicationRecord
-end

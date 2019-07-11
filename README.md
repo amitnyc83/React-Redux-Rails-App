@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#list of soccer shoes
+#list of individual shoes
+#create a new shoe item
+#update a shoe item
+#delete a shoe item
 
-Things you may want to cover:
+#GET /api/shoes
+#GET /api/shoes/:id
+#POST /api/shoes
+#PUT /api/shoes/:id
+#DELETE /api/shoes/:id
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#Shoe Model
+#name
+#price
+#img_url
+#description

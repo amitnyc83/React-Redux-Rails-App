@@ -1,20 +1,21 @@
-import React from 'react'
+import React, { Component }from 'react'
+import ShoeCard from '../components/ShoeCard'
 import './Shoes.css';
 
-const Shoes = (props) => (
-  <div className="ShoeContainer">
-   <h1>Shoes</h1>
-   {props.shoes.map(shoe =>
-      <div key={shoe.id} className="ShoeCard">
-       <img className="ShoeImage" src={shoe.img_url} alt={shoe.name}/>
-       <h3>{shoe.name}</h3>
-       <h4>{shoe.brand}</h4>
-       <p>Price: ${shoe.price}</p>
-       <p>Description: {shoe.description}</p>
+
+class Shoes extends Component {
+
+
+
+  render() {
+    return(
+      <div className="ShoeContainer">
+       <h1>Shoes</h1>
+       {this.props.shoes.map(shoe => <ShoeCard key={shoe.id} shoe={shoe} />)}
       </div>
-    )}
-  </div>
-)
+    )
+  }
+}
 
 
 export default Shoes;

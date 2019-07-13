@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +67,25 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+=======
+# README
+
+#list of soccer shoes
+#list of individual shoes
+#create a new shoe item
+#update a shoe item
+#delete a shoe item
+
+#GET /api/shoes
+#GET /api/shoes/:id
+#POST /api/shoes
+#PUT /api/shoes/:id
+#DELETE /api/shoes/:id
+
+
+#Shoe Model
+#name
+#price
+#img_url
+#description
+>>>>>>> soccershop-api/master

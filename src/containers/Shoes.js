@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ShoeCard from '../components/ShoeCard';
 import ShoeForm from './ShoeForm';
+import { connect } from 'react-redux';
 import './Shoes.css';
 
 
@@ -8,18 +9,27 @@ import './Shoes.css';
 
 class Shoes extends Component {
 
+  componentDidMount() {
+    
+  }
 
 
   render() {
     return(
       <div className="ShoeContainer">
        <h1>Shoes</h1>
-       {this.props.shoes.map(shoe => <ShoeCard key={shoe.id} shoe={shoe} />)}
        <ShoeForm />
+       {this.props.shoes.map(shoe => <ShoeCard key={shoe.id} shoe={shoe} />)}
       </div>
     )
   }
 }
 
 
-export default Shoes;
+const mapStateToProps = (state) => {
+  return ({
+    shoes: state.shoes
+  })
+}
+
+export default connect(mapStateToProps)(Shoes);

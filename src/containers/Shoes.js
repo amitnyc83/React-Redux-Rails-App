@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ShoeCard from '../components/ShoeCard';
 import ShoeForm from './ShoeForm';
 import { connect } from 'react-redux';
+import { getShoes } from '../actions/shoes';
 import './Shoes.css';
 
 
@@ -10,7 +11,7 @@ import './Shoes.css';
 class Shoes extends Component {
 
   componentDidMount() {
-    
+    this.props.getShoes()
   }
 
 
@@ -32,4 +33,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps)(Shoes);
+export default connect(mapStateToProps, { getShoes })(Shoes);

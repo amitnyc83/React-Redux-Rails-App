@@ -1,4 +1,10 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
+import {
+  createStore,
+  applyMiddleware,
+  combineReducers,
+  compose,
+}
+  from 'redux';
 import thunk from 'redux-thunk';
 import shoes from './reducers/shoes';
 
@@ -12,8 +18,12 @@ const reducers = combineReducers({
 
 const middleware = [thunk];
 
-export default createStore (
+
+
+const store = createStore(
   reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(...middleware),
-);
+  compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+)
+
+
+export default store;

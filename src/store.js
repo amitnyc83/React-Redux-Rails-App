@@ -7,6 +7,7 @@ import {
   from 'redux';
 import thunk from 'redux-thunk';
 import shoes from './reducers/shoes';
+import shoeFormData from './reducers/shoeFormData';
 
 
 
@@ -14,6 +15,7 @@ import shoes from './reducers/shoes';
 
 const reducers = combineReducers({
   shoes,
+  shoeFormData,
 });
 
 const middleware = [thunk];

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateShoeFormData } from '../actions/shoeForm';
+import { createShoe } from '../actions/shoes';
 
 class ShoeForm extends Component {
 
@@ -13,12 +14,18 @@ class ShoeForm extends Component {
     this.props.updateShoeFormData(currentShoeFormData)
   }
 
+
+  handleonSubmit = event => {
+    event.preventDefault()
+    this.props.createShoe(this.props.shoeFormData)
+  }
+
   render() {
     const { name, brand, price, img_url, description } = this.props.shoeFormData
     return(
       <div>
         Add A New Shoe To The Inventory
-        <form>
+        <form onSubmit={this.handleonSubmit}>
           <div>
             <label htmlFor="name">Name:</label>
             <input
@@ -64,6 +71,7 @@ class ShoeForm extends Component {
               value={description}
               />
           </div>
+          <button type="submit">Add New Shoe</button>
         </form>
       </div>
     )

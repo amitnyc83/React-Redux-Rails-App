@@ -18,7 +18,7 @@ const reducers = combineReducers({
   shoeFormData,
 });
 
-const middleware = [thunk];
+
 
 
 

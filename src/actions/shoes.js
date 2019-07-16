@@ -9,6 +9,13 @@ const setShoes = shoes => {
   }
 }
 
+const addShoe = shoe => {
+  return {
+    type: "CREATE_SHOE_SUCCESS",
+    shoe
+  }
+}
+
 // ** Async Actions **
 export const getShoes = () => {
   return dispatch => {
@@ -26,12 +33,10 @@ export const createShoe = shoe => {
       headers: {
         'Content-Type': 'application/json'
       },
-      data: JSON.stringify(shoe)
+      body: JSON.stringify({ shoe: shoe })
     })
     .then(response => response.json())
-    .then(shoes => {
-      debugger
-    })
+    .then(shoes => dispatch(addShoe(shoe)))
     .catch(error => console.log(error))
   }
 }

@@ -85,4 +85,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { updateShoeFormData })(ShoeForm);
+export default connect(mapStateToProps, { updateShoeFormData, createShoe })(ShoeForm);

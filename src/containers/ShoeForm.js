@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { updateShoeFormData } from '../actions/shoeForm';
 import { createShoe } from '../actions/shoes';
 
+
+
 class ShoeForm extends Component {
 
 
@@ -35,6 +37,7 @@ class ShoeForm extends Component {
               value={name}
               />
           </div>
+
           <div>
             <label htmlFor="brand">Brand:</label>
             <input
@@ -71,7 +74,8 @@ class ShoeForm extends Component {
               value={description}
               />
           </div>
-          <button type="submit">Add New Shoe</button>
+          <br></br>
+          <button className="ui button" type="submit">Add New Shoe</button>
         </form>
       </div>
     )

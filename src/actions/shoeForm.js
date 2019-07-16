@@ -6,3 +6,10 @@ export const updateShoeFormData = shoeFormData => {
     shoeFormData
   }
 }
+
+export const resetShoeForm = () => {
+  return {
+    type: "RESET_SHOE_FORM",
+
+  }
+}

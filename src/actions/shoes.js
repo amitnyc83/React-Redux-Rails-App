@@ -1,5 +1,6 @@
-const API_URL = process.env.REACT_APP_API_URL;
+import { resetShoeForm } from './shoeForm'
 
+const API_URL = process.env.REACT_APP_API_URL;
 
 // ** Actions Creators **
 const setShoes = shoes => {
@@ -36,7 +37,10 @@ export const createShoe = shoe => {
       body: JSON.stringify({ shoe: shoe })
     })
     .then(response => response.json())
-    .then(shoes => dispatch(addShoe(shoe)))
+    .then(shoes => {
+      dispatch(addShoe(shoe))
+      dispatch(resetShoeForm())
+    })
     .catch(error => console.log(error))
   }
 }

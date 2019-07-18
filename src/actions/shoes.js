@@ -49,8 +49,7 @@ export const getShoe = (shoeId) => {
   return dispatch => {
     return fetch(`${API_URL}/shoes/${shoeId}`)
     .then(response => response.json())
-    .then(shoe => { dispatch(setShoes([shoe]));
-    })
-    .catch(error => console.log(error))
+    .then(shoe => dispatch(setShoes(shoe)))
+    .catch(error => console.log(error));
   }
 }

@@ -27,12 +27,12 @@ class ShoeForm extends Component {
     const { name, brand, price, img_url, description } = this.props.shoeFormData
     return(
       <div>
-        <Form onSubmit={this.handleonSubmit} widths='small'>
+        <Form onSubmit={this.handleonSubmit}>
         Add A New Shoe To The Inventory
           <div>
             <label htmlFor="name">Name:</label>
             <input
-              type="text"
+              type="textbox"
               onChange={this.handleOnChange}
               name="name"
               value={name}
@@ -41,7 +41,7 @@ class ShoeForm extends Component {
           <div>
             <label htmlFor="brand">Brand:</label>
             <input
-              type="text"
+              type="textbox"
               onChange={this.handleOnChange}
               name="brand"
               value={brand}
@@ -50,7 +50,7 @@ class ShoeForm extends Component {
           <div>
             <label htmlFor="price">Price:</label>
             <input
-              type="number"
+              type="numberbox"
               onChange={this.handleOnChange}
               name="price"
               value={price}
@@ -59,7 +59,7 @@ class ShoeForm extends Component {
           <div>
             <label htmlFor="img_url">Img_url:</label>
             <input
-              type="text"
+              type="textbox"
               onChange={this.handleOnChange}
               name="img_url"
               value={img_url}
@@ -68,7 +68,7 @@ class ShoeForm extends Component {
           <div>
             <label htmlFor="description">Description:</label>
             <input
-              type="text"
+              type="textarea"
               onChange={this.handleOnChange}
               name="description"
               value={description}

@@ -14,6 +14,9 @@ const NavBar = () => {
           Home
         </Link>
         <Link to='/shoes' className='item'>
+          View Collection
+        </Link>
+        <Link to='/shoes/new' className='item'>
           Add A Shoe
         </Link>
         <Link to='/about' className='item'>

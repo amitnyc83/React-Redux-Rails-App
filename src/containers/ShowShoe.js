@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import { getShoe } from '../actions/shoes';
 import { connect } from 'react-redux';
+import ShoeForm from './ShoeForm'
 import ShoeCard from '../components/ShoeCard';
 import Shoes from './Shoes'
 
 
 class ShowShoe extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      shoe: {shoe: ''}
+    }
+  }
+
 
 
   componentDidMount() {
@@ -14,13 +23,14 @@ class ShowShoe extends Component {
 
 
   render() {
-    let shoe = this.props.shoe[0]
+    const shoe = this.props.shoe
     return (
-      <div className='showShoe'>
-        <div>
-        <h2 className="shoeName">{shoe.name}</h2>
-        <h3><p>Name: {shoe.name}</p></h3>
-        </div>
+      <div key={shoe.id} className='ShoeCard'>
+        <img className="ShoeImage" src={shoe.img_url} alt={shoe.name}/>
+        <h3>{shoe.name}</h3>
+        <h4>{shoe.brand}</h4>
+        <p>Price: ${shoe.price}</p>
+        <p>Description: {shoe.description}</p>
       </div>
     )
   }

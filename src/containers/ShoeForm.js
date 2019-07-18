@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateShoeFormData } from '../actions/shoeForm';
 import { createShoe } from '../actions/shoes';
+import { Button, Form } from 'semantic-ui-react';
 
 
 
@@ -26,8 +27,8 @@ class ShoeForm extends Component {
     const { name, brand, price, img_url, description } = this.props.shoeFormData
     return(
       <div>
+        <Form onSubmit={this.handleonSubmit} widths='small'>
         Add A New Shoe To The Inventory
-        <form onSubmit={this.handleonSubmit}>
           <div>
             <label htmlFor="name">Name:</label>
             <input
@@ -37,7 +38,6 @@ class ShoeForm extends Component {
               value={name}
               />
           </div>
-
           <div>
             <label htmlFor="brand">Brand:</label>
             <input
@@ -75,8 +75,8 @@ class ShoeForm extends Component {
               />
           </div>
           <br></br>
-          <button className="ui button" type="submit">Add New Shoe</button>
-        </form>
+          <Button className="ui button" type="submit">Add New Shoe</Button>
+        </Form>
       </div>
     )
   }

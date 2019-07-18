@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import ShoeCard from '../components/ShoeCard';
-import ShoeForm from './ShoeForm';
 import { connect } from 'react-redux';
 import { getShoes } from '../actions/shoes';
+import { Switch, Route } from 'react-router-dom';
 import './Shoes.css';
 
 
@@ -18,9 +18,18 @@ class Shoes extends Component {
 
 
   render() {
+    const { shoes, match } = this.props;
     return(
-      <div className="ShoeContainer">
-       {this.props.shoes.map(shoe => <ShoeCard key={shoe.id} shoe={shoe} />)}
+      <div>
+        <Switch>
+          <Route exact path={match.url}
+            render = {() =>
+            <div className="ShoeContainer">
+              {this.props.shoes.map(shoe => <ShoeCard key={shoe.id} shoe={shoe} />)}
+            </div>
+          }
+          />
+        </Switch>
       </div>
     )
   }

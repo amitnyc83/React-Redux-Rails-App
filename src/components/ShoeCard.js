@@ -1,6 +1,7 @@
 import React from 'react';
 
 
+
 const ShoeCard = ({ shoe }) => (
   <div key={shoe.id} className="ShoeCard">
     <a href={`shoes/${shoe.id}`}>

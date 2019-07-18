@@ -18,7 +18,7 @@ class Shoes extends Component {
 
 
   render() {
-    const { shoes, match } = this.props;
+    const { match } = this.props;
     return(
       <div>
         <Switch>

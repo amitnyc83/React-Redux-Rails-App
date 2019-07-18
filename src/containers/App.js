@@ -7,7 +7,6 @@ import ShoeForm from '../containers/ShoeForm'
 import ShowShoe from '../containers/ShowShoe'
 import About from '../components/About'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Footer from '../components/Footer';
 import { Divider } from 'semantic-ui-react'
 
 
@@ -40,7 +39,6 @@ class App extends Component {
             <Route exact path="/shoes/:shoeId" component={ShowShoe} />
             <Route exact path="/about" component={About}/>
             </Switch>
-            <Footer />
           </div>
         </Router>
       );

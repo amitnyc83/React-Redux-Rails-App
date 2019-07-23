@@ -20,7 +20,8 @@ class ShoeForm extends Component {
 
   handleonSubmit = event => {
     event.preventDefault()
-    this.props.createShoe(this.props.shoeFormData)
+     const { createShoe, shoeFormData, history } = this.props;
+     createShoe(shoeFormData, history);
   }
 
   render() {

@@ -17,6 +17,13 @@ const addShoe = shoe => {
   }
 }
 
+const removeShoe = shoe => {
+  return {
+    type: "REMOVE_SHOE_SUCCESS",
+    shoe
+  }
+}
+
 // ** Async Actions **
 export const getShoes = () => {
   return dispatch => {
@@ -27,7 +34,18 @@ export const getShoes = () => {
   }
 }
 
-export const createShoe = shoe => {
+
+export const getShoe = (shoeId) => {
+  return dispatch => {
+    return fetch(`${API_URL}/shoes/${shoeId}`)
+    .then(response => response.json())
+    .then(shoe => dispatch(setShoes([shoe])))
+    .catch(error => console.log(error));
+  }
+}
+
+
+export const createShoe = ( shoe, routerHistory ) => {
   return dispatch => {
     return fetch(`${API_URL}/shoes`, {
       method: "POST",
@@ -40,16 +58,21 @@ export const createShoe = shoe => {
     .then(shoes => {
       dispatch(addShoe(shoe))
       dispatch(resetShoeForm())
+      routerHistory.replace(`/shoes/${shoe.id}`)
     })
     .catch(error => console.log(error))
   }
 }
 
-export const getShoe = (shoeId) => {
+export const deleteShoe = ( shoeId, routerHistory ) => {
   return dispatch => {
-    return fetch(`${API_URL}/shoes/${shoeId}`)
-    .then(response => response.json())
-    .then(shoe => dispatch(setShoes(shoe)))
-    .catch(error => console.log(error));
+    return fetch(`/${API_URL}/shoes/${shoeId}`, {
+      method: "DELETE"
+    })
+    .then(response => {
+      dispatch(removeShoe(shoeId));
+      routerHistory.replace('/shoes');
+    })
+    .catch(error => console.log(error))
   }
 }

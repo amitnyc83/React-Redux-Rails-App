@@ -6,7 +6,8 @@ export default (state = [], action) => {
     case "CREATE_SHOE_SUCCESS":
     return state.concat(action.shoe);
 
-    
+    case "REMOVE_SHOE_SUCCESS":
+    return state.filter(shoe => shoe.id !== action.shoeId);
 
 
     default:

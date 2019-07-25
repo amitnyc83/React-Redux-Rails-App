@@ -54,6 +54,7 @@ export const createShoe = ( shoe, routerHistory ) => {
       },
       body: JSON.stringify({ shoe: shoe })
     })
+    .then(displayErrors)
     .then(response => response.json())
     .then(shoes => {
       dispatch(addShoe(shoe))
@@ -75,4 +76,11 @@ export const deleteShoe = ( shoeId, routerHistory ) => {
     })
     .catch(error => console.log(error))
   }
+}
+
+function displayErrors(response){
+  if(!response.ok){
+    throw Error(response.statusText);
+  }
+  return response
 }

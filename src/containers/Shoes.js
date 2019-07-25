@@ -20,14 +20,14 @@ class Shoes extends Component {
 
 
   render() {
-    const { shoe, match } = this.props;
+    const { match } = this.props;
     return(
       <div>
         <Switch>
           <Route exact path={match.url}
             render = {() =>
             <div className="ShoeContainer">
-              {this.props.shoes.map(shoe => <ShoeCard key={shoe.id} shoe={shoe} />)}
+              {this.props.shoes.map((shoe, id) => <ShoeCard key={id} shoe={shoe} />)}
             </div>
           }
           />

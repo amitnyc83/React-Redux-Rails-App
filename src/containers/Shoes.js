@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import ShoeCard from '../components/ShoeCard';
 import { connect } from 'react-redux';
+import ShoeCard from '../components/ShoeCard';
+import ShoeForm from '../containers/ShoeForm';
+import ShowShoe from '../containers/ShowShoe';
 import { getShoes } from '../actions/shoes';
 import { Switch, Route } from 'react-router-dom';
 import './Shoes.css';
@@ -18,7 +20,7 @@ class Shoes extends Component {
 
 
   render() {
-    const { match } = this.props;
+    const { shoe, match } = this.props;
     return(
       <div>
         <Switch>
@@ -28,6 +30,11 @@ class Shoes extends Component {
               {this.props.shoes.map(shoe => <ShoeCard key={shoe.id} shoe={shoe} />)}
             </div>
           }
+          />
+        <Route exact path="/shoes/new" component={ShoeForm} />
+        <Route
+          path="/shoes/:shoeId"
+          component={ShowShoe}
           />
         </Switch>
       </div>

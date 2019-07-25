@@ -58,7 +58,7 @@ export const createShoe = ( shoe, routerHistory ) => {
     .then(shoes => {
       dispatch(addShoe(shoe))
       dispatch(resetShoeForm())
-      routerHistory.replace(`/shoes/${shoe.id}`)
+      routerHistory.replace(`/shoes`)
     })
     .catch(error => console.log(error))
   }
@@ -66,7 +66,7 @@ export const createShoe = ( shoe, routerHistory ) => {
 
 export const deleteShoe = ( shoeId, routerHistory ) => {
   return dispatch => {
-    return fetch(`/${API_URL}/shoes/${shoeId}`, {
+    return fetch(`http://localhost:3001/api/shoes/${shoeId}`, {
       method: "DELETE"
     })
     .then(response => {

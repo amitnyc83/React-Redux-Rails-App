@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { updateShoeFormData } from '../actions/shoeForm';
 import { createShoe } from '../actions/shoes';
 import { Button, Form } from 'semantic-ui-react';
+import FormErrors from '../components/FormErrors'
 
 
 
@@ -25,9 +26,10 @@ class ShoeForm extends Component {
   }
 
   render() {
-    const { name, brand, price, img_url, description } = this.props.shoeFormData
+    const { name, brand, price, img_url, description } = this.props.shoeFormData;
     return(
       <div>
+        { this.props.errors === true ? <FormErrors /> : null }
         <Form onSubmit={this.handleonSubmit}>
         Add A New Shoe To The Inventory
           <div>
@@ -86,7 +88,8 @@ class ShoeForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    shoeFormData: state.shoeFormData
+    shoeFormData: state.shoeFormData,
+    errors: state.errors
   }
 }
 

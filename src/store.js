@@ -8,6 +8,7 @@ import {
 import thunk from 'redux-thunk';
 import shoes from './reducers/shoes';
 import shoeFormData from './reducers/shoeFormData';
+import errors from './reducers/errors';
 
 
 
@@ -16,6 +17,7 @@ import shoeFormData from './reducers/shoeFormData';
 const reducers = combineReducers({
   shoes,
   shoeFormData,
+  errors
 });
 
 

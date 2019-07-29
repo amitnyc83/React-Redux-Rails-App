@@ -17,6 +17,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'foreman', '~> 0.82.0'
 
+gem 'active_model_serializers'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

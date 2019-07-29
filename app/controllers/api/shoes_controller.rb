@@ -7,9 +7,9 @@ class Api::ShoesController < ApplicationController
   end
 
   def create
-    shoe = Shoe.new(shoe_params)
-    if shoe.save
-      render json: shoe
+    @shoe = Shoe.new(shoe_params)
+    if @shoe.save
+      render json: @shoe
     else
       render json: {message: shoe.errors }, status: 400
     end
@@ -43,7 +43,7 @@ class Api::ShoesController < ApplicationController
   end
 
   def shoe_params
-    params.require(:shoe).permit(:name, :brand, :img_url, :price, :description)
+    params.require(:shoe).permit(:id, :name, :brand, :img_url, :price, :description, :likes, :created_at, :updated_at)
   end
 
 end

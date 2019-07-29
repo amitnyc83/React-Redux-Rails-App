@@ -3,7 +3,8 @@ const initialState = {
   price: 0,
   brand: '',
   img_url: '',
-  description: ''
+  description: '',
+  likes: 0
 }
 
 

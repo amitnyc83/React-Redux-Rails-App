@@ -24,12 +24,20 @@ const removeShoe = shoe => {
   }
 }
 
+const addLikes = shoe => {
+  return {
+    type: "LIKE_SHOE",
+    shoe
+  }
+}
+
 // ** Async Actions **
 export const getShoes = () => {
   return dispatch => {
     return fetch(`${API_URL}/shoes`)
     .then(response => response.json())
-    .then(shoes => dispatch(setShoes(shoes)))
+    .then(shoes => {
+      dispatch(setShoes(shoes))})
     .catch(error => console.log(error));
   }
 }
@@ -61,9 +69,32 @@ export const createShoe = ( shoe, routerHistory ) => {
       dispatch(resetShoeForm())
       routerHistory.replace(`/shoes`)
     })
+    .catch(error => {
+      dispatch({type: 'error'})
+      routerHistory.replace(`/shoes/new`)
+    })
+  }
+}
+
+
+export const likeShoe = ( shoe, shoes ) => {
+  const updatedShoe = {...shoe,  likes: shoe.likes + 1 }
+  return dispatch => {
+    return fetch(`${API_URL}/shoes/${shoe.id}`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ shoe: updatedShoe })
+    })
+    .then(response => response.json ())
+    .then(shoe => {
+      dispatch(addLikes(shoe))
+    })
     .catch(error => console.log(error))
   }
 }
+
 
 export const deleteShoe = ( shoeId, routerHistory ) => {
   return dispatch => {

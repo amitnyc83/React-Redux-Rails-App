@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
-import { getShoe } from '../actions/shoes';
-import { deleteShoe } from '../actions/shoes';
 import { connect } from 'react-redux';
+import { getShoe } from '../actions/shoes';
+import { likeShoe } from '../actions/shoes';
+import { deleteShoe } from '../actions/shoes';
+import LikeButton from '../components/LikeButton';
+
+
+
+
 
 
 class ShowShoe extends Component {
@@ -9,6 +15,10 @@ class ShowShoe extends Component {
 
   componentDidMount() {
     this.props.getShoe(this.props.match.params.shoeId)
+  }
+
+  handleOnClick =() => {
+    this.props.likeShoe(this.props.shoe[0])
   }
 
 
@@ -34,6 +44,7 @@ class ShowShoe extends Component {
       )}
           <br></br>
           <button onClick={() => deleteShoe(shoe.id, history)}>DELETE</button>
+          {shoe ? <LikeButton shoe={shoe} likeShoe={this.handleOnClick} /> : 'Error'}
       </div>
     )
   }
@@ -47,4 +58,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, { deleteShoe, getShoe })(ShowShoe);
+export default connect(mapStateToProps, { deleteShoe, getShoe, likeShoe })(ShowShoe);

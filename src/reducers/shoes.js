@@ -9,6 +9,15 @@ export default (state = [], action) => {
     case "REMOVE_SHOE_SUCCESS":
     return state.filter(shoe => shoe.id !== action.shoeId);
 
+    case "LIKE_SHOE":
+    return state.map((shoe) => {
+      if(shoe.id === action.shoe.id) {
+        return action.shoe
+      } else {
+        return shoe
+      }
+    });
+
 
     default:
     return state;

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { likeShoe } from '../actions/shoes';
 
 
+
 class ShoeCard extends Component {
   render(){
     const { shoe } = this.props;

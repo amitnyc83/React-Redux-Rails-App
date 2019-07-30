@@ -29,7 +29,7 @@ class ShoeForm extends Component {
     const { name, brand, price, img_url, description } = this.props.shoeFormData;
     return(
       <Form onSubmit={this.handleonSubmit}>
-        Add A New Shoe To The Inventory
+        <h2>Add A New Shoe To The Inventory</h2>
         { this.props.errors === true ? <FormErrors /> : null }
         <Form.Group widths='equal'>
           <Form.Input

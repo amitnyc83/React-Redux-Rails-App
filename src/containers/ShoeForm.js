@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateShoeFormData } from '../actions/shoeForm';
 import { createShoe } from '../actions/shoes';
-import { Button, Form } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 import FormErrors from '../components/FormErrors'
 
 
@@ -28,59 +28,38 @@ class ShoeForm extends Component {
   render() {
     const { name, brand, price, img_url, description } = this.props.shoeFormData;
     return(
-      <div>
-        { this.props.errors === true ? <FormErrors /> : null }
-        <Form onSubmit={this.handleonSubmit}>
+      <Form onSubmit={this.handleonSubmit}>
         Add A New Shoe To The Inventory
-          <div>
-            <label htmlFor="name">Name:</label>
-            <input
-              type="textbox"
-              onChange={this.handleOnChange}
-              name="name"
-              value={name}
-              />
-          </div>
-          <div>
-            <label htmlFor="brand">Brand:</label>
-            <input
-              type="textbox"
-              onChange={this.handleOnChange}
-              name="brand"
-              value={brand}
-              />
-          </div>
-          <div>
-            <label htmlFor="price">Price:</label>
-            <input
-              type="numberbox"
-              onChange={this.handleOnChange}
-              name="price"
-              value={price}
-              />
-          </div>
-          <div>
-            <label htmlFor="img_url">Img_url:</label>
-            <input
-              type="textbox"
-              onChange={this.handleOnChange}
-              name="img_url"
-              value={img_url}
-              />
-          </div>
-          <div>
-            <label htmlFor="description">Description:</label>
-            <input
-              type="textarea"
-              onChange={this.handleOnChange}
-              name="description"
-              value={description}
-              />
-          </div>
-          <br></br>
-          <Button className="ui button" type="submit">Add New Shoe</Button>
-        </Form>
-      </div>
+        { this.props.errors === true ? <FormErrors /> : null }
+        <Form.Group widths='equal'>
+          <Form.Input
+            fluid label='Name'
+            onChange={this.handleOnChange}
+            placeholder='name'
+            value={name}
+          />
+         <Form.Input
+           fluid label='Brand'
+           onChange={this.handleOnChange}
+           placeholder='brand'
+           value={brand}
+          />
+          <Form.Input
+           fluid label='Price'
+           onChange={this.handleOnChange}
+           placeholder='price'
+           value={price}
+          />
+          <Form.Input
+            fluid label='Image_url'
+            onChange={this.handleOnChange}
+            placeholder='img_url'
+            value={img_url}
+          />
+        </Form.Group>
+        <Form.TextArea label='Description' placeholder='Tell us more about this shoe...' value={description}/>
+        <Form.Button>Add New Shoe</Form.Button>
+      </Form>
     )
   }
 }

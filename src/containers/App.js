@@ -7,7 +7,7 @@ import ShoeForm from '../containers/ShoeForm'
 import ShowShoe from '../containers/ShowShoe'
 import About from '../components/About'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Divider } from 'semantic-ui-react'
+import { Divider, Header } from 'semantic-ui-react'
 
 
 
@@ -28,10 +28,10 @@ class App extends Component {
       <Router>
         <div className="App">
           <NavBar />
-          <header>
-            <h1 className="app-title">Soccer Shop</h1>
-          </header>
-          <Divider hidden></ Divider>
+          <Header as='h1' textAlign='center'>
+            Soccer Shop
+            <Divider hidden />
+          </Header>
             <Switch>
             <Route exact path="/" component={Home}/>
             <Route exact path="/shoes" component={Shoes}/>

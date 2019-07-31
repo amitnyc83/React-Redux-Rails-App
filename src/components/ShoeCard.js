@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { likeShoe } from '../actions/shoes';
+import { Container } from 'semantic-ui-react';
+
 
 
 class ShoeCard extends Component {
@@ -14,7 +16,7 @@ class ShoeCard extends Component {
         <h3>{shoe.name}</h3>
         <h4>{shoe.brand}</h4>
         <p>Price: ${shoe.price}</p>
-        <p>Description: {shoe.description}</p>
+         <p>Description: {shoe.description}</p>
         </a>
         <br></br>
         <button onClick={() => {this.props.likeShoe(shoe)}}>Like</button>{this.props.shoe.likes}

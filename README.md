@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 This App is a place where you can find and add soccer shoes. Share a new shoe that you don't see on the site and discover/ research new shoes. This App is created with React & Redux for the frontend and connected to a Rails JSON API to persist data in the backend.
 
-##Features:
+## Features
 
 View a collection of shoes
 View an individual shoe
@@ -25,7 +25,7 @@ If the localhost doesn't open automatically, copy and paste.<br>
 The page will reload if you make edits.<br>
 
 
-##Some features to add would be:
+## Some features to add would be:
 
 Have a search bar to display shoes by brands, names
 Be able to filter shoes by price range
@@ -47,7 +47,7 @@ Add downdrop menu for brands when creating the form
 #DELETE /api/shoes/:id
 
 
-##Shoe Model
+## Shoe Model
 
 #name
 #brand

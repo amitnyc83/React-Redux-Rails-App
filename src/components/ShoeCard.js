@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { likeShoe } from '../actions/shoes';
-import { Container } from 'semantic-ui-react';
+
 
 
 

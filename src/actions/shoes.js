@@ -31,6 +31,8 @@ const addLikes = shoe => {
   }
 }
 
+
+
 // ** Async Actions **
 export const getShoes = () => {
   return dispatch => {

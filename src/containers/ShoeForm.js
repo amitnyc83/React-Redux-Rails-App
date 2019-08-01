@@ -42,27 +42,37 @@ class ShoeForm extends Component {
              onChange={this.handleOnChange}
              placeholder='name'
              value={name}
+             name='name'
             />
             <Form.Input
              fluid label='Brand'
              onChange={this.handleOnChange}
              placeholder='brand'
              value={brand}
+             name='brand'
             />
             <Form.Input
              fluid label='Price'
              onChange={this.handleOnChange}
              placeholder='price'
              value={price}
+             name='price'
             />
             <Form.Input
              fluid label='Image_url'
              onChange={this.handleOnChange}
              placeholder='img_url'
              value={img_url}
+             name='img_url'
             />
           </Form.Group>
-          <Form.TextArea label='Description' placeholder='Tell us more about this shoe...' value={description}/>
+          <Form.TextArea
+            label='Description'
+            placeholder='Tell us more about this shoe...'
+            onChange={this.handleOnChange}
+            value={description}
+            name='description'
+          />
         <Button color='blue'>Add New Shoe</Button>
         </Form>
       </div>

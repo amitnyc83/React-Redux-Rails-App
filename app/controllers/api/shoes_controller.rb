@@ -30,7 +30,7 @@ class Api::ShoesController < ApplicationController
 
   def destroy
     if @shoe.destroy
-      render status: 204
+      render json: {}, status: 204
     else
       render json: { message: "unable to delete shoe" }, status: 400
     end

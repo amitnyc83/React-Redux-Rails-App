@@ -5,7 +5,8 @@ import ShoeForm from '../containers/ShoeForm';
 import ShowShoe from '../containers/ShowShoe';
 import { getShoes } from '../actions/shoes';
 import { Switch, Route } from 'react-router-dom';
-import './Shoes.css';
+import { Card } from 'semantic-ui-react';
+
 
 
 
@@ -26,9 +27,9 @@ class Shoes extends Component {
         <Switch>
           <Route exact path={match.url}
             render = {() =>
-            <div className="ShoeContainer">
+            <Card.Group itesPerRow={3}>
               {this.props.shoes.map((shoe, id) => <ShoeCard key={id} shoe={shoe} />)}
-            </div>
+            </Card.Group>
           }
           />
         <Route exact path="/shoes/new" component={ShoeForm} />

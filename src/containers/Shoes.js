@@ -27,7 +27,7 @@ class Shoes extends Component {
         <Switch>
           <Route exact path={match.url}
             render = {() =>
-            <Card.Group itesPerRow={3}>
+            <Card.Group itemsPerRow={4}>
               {this.props.shoes.map((shoe, id) => <ShoeCard key={id} shoe={shoe} />)}
             </Card.Group>
           }

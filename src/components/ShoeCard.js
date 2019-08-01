@@ -11,32 +11,32 @@ class ShoeCard extends Component {
     const { shoe } = this.props;
 
     return(
+      <Card>
+        <div key={shoe.id} >
+          <a href={`/shoes/${shoe.id}`}>
 
-        <Card>
-      <div key={shoe.id} >
-        <a href={`/shoes/${shoe.id}`}>
-        <Image src={shoe.img_url} alt={shoe.name} />
-        <Card.Content>
-        <Card.Header><h3>{shoe.name}</h3></Card.Header>
-        <h4>{shoe.brand}</h4>
-        <p>Price: ${shoe.price}</p>
-        <Card.Description>
-          <div className="ShoeDescription">
-          Description: {shoe.description}
+            <Image className="ShoeImage" src={shoe.img_url} alt={shoe.name} />
+            <Card.Content>
+              <Card.Header><h3>{shoe.name}</h3></Card.Header>
+              <h4>{shoe.brand}</h4>
+              <p>Price: ${shoe.price}</p>
+              <Card.Description>
+                <div className="ShoeDescription">
+                  Description: {shoe.description}
+                </div>
+              </Card.Description>
+            </Card.Content>
+          </a>
+          <Divider hidden />
+          <Card.Content extra>
+            <Icon name='like' />
+            <button onClick={() => {this.props.likeShoe(shoe)}}>Like</button>{this.props.shoe.likes}
+            </Card.Content>
           </div>
-         </Card.Description>
-         </Card.Content>
-        </a>
-        <Divider hidden />
-        <Card.Content extra>
-          <Icon name='like' />
-         <button onClick={() => {this.props.likeShoe(shoe)}}>Like</button>{this.props.shoe.likes}
-        </Card.Content>
-      </div>
-      </Card>
-    )
+        </Card>
+      )
+    }
   }
-}
 
 
 

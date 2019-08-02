@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateShoeFormData } from '../actions/shoeForm';
 import { createShoe } from '../actions/shoes';
-import { Form, Button, Message } from 'semantic-ui-react';
+import { Form, Button, Message, Divider } from 'semantic-ui-react';
 import FormErrors from '../components/FormErrors'
 
 
@@ -34,34 +34,35 @@ class ShoeForm extends Component {
           header='Add A New Shoe To The Inventory'
           content='Fill out the form below to add a new shoe to the collection'
         />
+      <Divider hidden />
         <Form onSubmit={this.handleonSubmit}>
          { this.props.errors === true ? <FormErrors /> : null }
          <Form.Group widths='equal'>
            <Form.Input
              fluid label='Name'
              onChange={this.handleOnChange}
-             placeholder='name'
+             placeholder='Name'
              value={name}
              name='name'
             />
             <Form.Input
              fluid label='Brand'
              onChange={this.handleOnChange}
-             placeholder='brand'
+             placeholder='Brand'
              value={brand}
              name='brand'
             />
             <Form.Input
              fluid label='Price'
              onChange={this.handleOnChange}
-             placeholder='price'
+             placeholder='Price'
              value={price}
              name='price'
             />
             <Form.Input
              fluid label='Image_url'
              onChange={this.handleOnChange}
-             placeholder='img_url'
+             placeholder='Img_url'
              value={img_url}
              name='img_url'
             />

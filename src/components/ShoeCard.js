@@ -31,12 +31,12 @@ class ShoeCard extends Component {
           <Card.Content extra>
             <Icon name='like' />
             <button onClick={() => {this.props.likeShoe(shoe)}}>Like</button>{this.props.shoe.likes}
-            </Card.Content>
-          </div>
-        </Card>
-      )
-    }
+          </Card.Content>
+        </div>
+      </Card>
+    )
   }
+}
 
 
 

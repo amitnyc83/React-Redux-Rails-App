@@ -4,6 +4,7 @@ import { getShoe } from '../actions/shoes';
 import { likeShoe } from '../actions/shoes';
 import { deleteShoe } from '../actions/shoes';
 import LikeButton from '../components/LikeButton';
+import Comments from './Comments';
 
 
 
@@ -11,6 +12,34 @@ import LikeButton from '../components/LikeButton';
 
 
 class ShowShoe extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      comment: '',
+      comments: []
+    };
+  }
+
+  handleChange = event => {
+    this.setState({
+      comment: event.target.value
+    });
+  }
+
+
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.setState({
+      comment: '',
+      comments: [...this.state.comments, this.state.comment]
+    })
+  }
+
+  // resetState = () => this.setState({
+  //   comment: ''
+  // })
+
 
 
   componentDidMount() {
@@ -22,12 +51,9 @@ class ShowShoe extends Component {
   }
 
 
-
-
   render() {
     let shoe = this.props.shoe[0];
     const { deleteShoe, history } = this.props;
-
 
     return (
       <div className='ShoeContainer'>
@@ -45,6 +71,18 @@ class ShowShoe extends Component {
           <br></br>
           <button onClick={() => deleteShoe(shoe.id, history)}>DELETE</button>
           {shoe ? <LikeButton shoe={shoe} likeShoe={this.handleOnClick} /> : 'Error'}
+          <br></br>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type='text'
+              placeholder='add a comment'
+              onChange={this.handleChange}
+              value={this.state.comment}
+            />
+          <br></br>
+          <button type='submit'>Submit</button>
+          </form>
+          <Comments comments={this.state.comments} />
       </div>
     )
   }

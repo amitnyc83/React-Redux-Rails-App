@@ -5,6 +5,7 @@ import { likeShoe } from '../actions/shoes';
 import { deleteShoe } from '../actions/shoes';
 import LikeButton from '../components/LikeButton';
 import Comments from './Comments';
+import { Form  } from 'semantic-ui-react'
 
 
 
@@ -22,7 +23,7 @@ class ShowShoe extends Component {
 
   handleChange = event => {
     this.setState({
-      comment: event.target.value
+      [event.target.name]: event.target.value
     });
   }
 
@@ -72,16 +73,17 @@ class ShowShoe extends Component {
           <button onClick={() => deleteShoe(shoe.id, history)}>DELETE</button>
           {shoe ? <LikeButton shoe={shoe} likeShoe={this.handleOnClick} /> : 'Error'}
           <br></br>
-          <form onSubmit={this.handleSubmit}>
+          <Form onSubmit={this.handleSubmit}>
             <input
-              type='text'
+              name='comment'
+              type='textarea'
               placeholder='add a comment'
               onChange={this.handleChange}
               value={this.state.comment}
             />
           <br></br>
           <button type='submit'>Submit</button>
-          </form>
+          </Form>
           <Comments comments={this.state.comments} />
       </div>
     )

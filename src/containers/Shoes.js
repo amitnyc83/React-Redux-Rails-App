@@ -12,7 +12,6 @@ import { Card } from 'semantic-ui-react';
 
 
 
-
 class Shoes extends Component {
   constructor(props){
     super(props);
